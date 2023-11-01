@@ -1,3 +1,12 @@
+import Intro from "./intro/index.js";
+// import { useRouter } from "next/router";
+
 export default function Home() {
-  return <main>Hello World</main>;
+  // const router = useRouter();
+  return (
+    <main>
+      <Intro/>
+      {/* <button onClick={()=>router.push("/login")}>Login</button> */}
+    </main>
+  );
 }
