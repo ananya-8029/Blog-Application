@@ -1,0 +1,25 @@
+.footer{
+    height: 20vh;
+    background-color: rgb(39, 38, 38);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.logo{
+    width: 30%;
+    font-size: 3.5vmax;
+    /* color: white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    height: 100%;
+}

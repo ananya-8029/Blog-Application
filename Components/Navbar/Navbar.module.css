@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: space-around;
   font-family: "Merriweather", serif;
-  color: white;
+  /* color: white; */
   font-size: 1.3vmax;
   font-weight: 300;
 }
@@ -50,12 +50,14 @@
   font-size: 0.9vmax;
   font-weight: 900;
   transition: 0.2s all ease;
+  color: white;
 }
 
 .others .write:hover {
   transform: scale(0.9);
   border: 0.15vmax solid black;
   background-color: transparent;
+  color: black;
 }
 
 .others .logout {
