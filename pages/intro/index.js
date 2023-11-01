@@ -5,7 +5,6 @@ const Home = () => {
   return (
     <>
       <Navbar/>
-      This is intro page
     </>
   )
 }

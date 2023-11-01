@@ -1,20 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;900&display=swap');
-.header{
-    height: 5.5vmax;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;900&family=Poppins:wght@100;300;500&display=swap");
+.header {
+  height: 5.5vmax;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: 0vmax 0vmax 0.5vmax 0.2vmax #23414c;
 }
 
-.logo{
-    width: 35%;
+.logo {
+  width: 20%;
+  padding: 0 2vmax;
+  font-size: 3vmax;
+  font-weight: 900;
 }
 
-.links{
-    width: 65%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: 'Merriweather', serif;
+.links {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Merriweather", serif;
+  color: white;
+  font-size: 1.3vmax;
+  font-weight: 300;
 }
+
+.others {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vmax;
+  width: 30%;
+  font-size: 1vmax;
+  font-family: "Poppins", sans-serif;
+}
+
+.others span {
+  font-weight: 900;
+  font-size: 1.2vmax;
+  color: black;
+}
+
+.others .write {
+  background-color: rgb(38, 36, 36);
+  border-radius: 50%;
+  height: 4.5vmax;
+  width: 4.5vmax;
+  font-size: 0.9vmax;
+  font-weight: 900;
+  transition: 0.2s all ease;
+}
+
+.others .write:hover {
+  transform: scale(0.9);
+  border: 0.15vmax solid black;
+  background-color: transparent;
+}
+
+.others .logout {
+  width: 4.5vmax;
+  background-color: rgb(92, 203, 149);
+  height: 2vmax;
+  border-radius: 0.5vmax;
+  font-size: 0.9vmax;
+}
+
+.others .logout:hover{
+    background-color: rgb(89, 183, 137);
+}
+

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Navbar.module.css"
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
@@ -30,6 +30,12 @@ const Navbar = () => {
           <button>
             <h2>Food</h2>
           </button>
+
+          <div className={styles.others}>
+            <span className={styles.span}>User Name.</span>
+            <button className={styles.logout}>Logout</button>
+            <button className={styles.write}>WRITE</button>
+          </div>
         </div>
       </div>
     </>
