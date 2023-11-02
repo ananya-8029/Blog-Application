@@ -8,14 +8,70 @@
 
 .posts{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10vmax;
+    padding: 7vmax;
     /* color: white; */
 }
 
 .post{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    gap: 2vmax;
 }
+
+.post:nth-child(2n+1){
+    flex-direction: row-reverse;
+}
+
+.postImg{
+    flex: 2;
+    width: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+/* .postImg::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: pink;
+    z-index: -1;
+    top: 1vmax;
+    right: 1vmax;
+} */
+
+.content{
+    display: flex;
+    flex-direction: column;
+    flex:3;
+    gap: 1.5vmax;
+}
+
+.content h1{
+    font-size: 2.5vmax;
+    font-weight: 900;
+}
+
+.post .btn{
+    background-color: pink;
+    font-size: 0.9vmax;
+    font-weight: 700;
+    color: white;
+    border-radius: 50%;
+    width: 4.5vmax;
+    height: 4.5vmax;
+    transition: 0.5s all;
+}
+
+.post .btn:hover{
+    transform: scale(0.9);
+    background-color: transparent;
+    border: 0.15vmax pink solid;
+    color: black;
+}
+

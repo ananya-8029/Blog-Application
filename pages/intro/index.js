@@ -10,28 +10,28 @@ const Home = () => {
       title:
         "orem Ipsum is simply dummy text of the printing a Ipsum has been the ",
       desc: "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-      img: "https://picsum.photos/200/300",
+      img: "https://picsum.photos/400/400",
     },
     {
       id: 2,
       title:
         "orem Ipsum is simply dummy text of the printing and typesettinand",
       desc: "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-      img: "https://picsum.photos/200/300",
+      img: "https://picsum.photos/400/400",
     },
     {
       id: 3,
       title:
         "orem Ipsum is simply dummy text of the printing and typesetting industry.",
       desc: "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum h text ever since the 1500s,",
-      img: "https://picsum.photos/200/300",
+      img: "https://picsum.photos/400/400",
     },
     {
       id: 4,
       title:
         "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum ,",
       desc: "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-      img: "https://picsum.photos/200/300",
+      img: "https://picsum.photos/400/400",
     },
   ];
   return (
@@ -41,14 +41,14 @@ const Home = () => {
         <div className={styles.posts}>
           {posts.map((post) => (
             <div className={styles.post} key={post.id}>
-              <div className="postImg">
+              <div className={styles.postImg}>
                 <img src={post.img}></img>
               </div>
-              <div className="content">
-                <h1>{post.title}</h1>
+              <div className={styles.content}>
+                <h1 className={styles.h1}>{post.title}</h1>
                 <p>{post.desc}</p>
+                <button className={styles.btn}>Read More</button>
               </div>
-              <button>Read More</button>
             </div>
           ))}
         </div>
