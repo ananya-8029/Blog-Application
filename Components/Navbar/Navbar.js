@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./Navbar.module.css";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const router = useRouter();
   return (
     <>
       <div className={styles.header}>
@@ -34,7 +36,7 @@ const Navbar = () => {
           <div className={styles.others}>
             <span className={styles.span}>User Name.</span>
             <button className={styles.logout}>Logout</button>
-            <button className={styles.write}>WRITE</button>
+            <button onClick={() => router.push("/write")} className={styles.write}>WRITE</button>
           </div>
         </div>
       </div>

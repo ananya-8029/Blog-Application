@@ -1,0 +1,49 @@
+.header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  color: rgb(109, 109, 109);
+  font-size: 1.5vmax;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vmax;
+  margin: 2vmax;
+}
+
+.post .postImg img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 18vmax;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1vmax;
+}
+
+.content h1 {
+  font-size: 1.4vmax;
+  color: rgb(56, 54, 54);
+  font-weight: 900;
+}
+
+.content .btn {
+  font-size: 1vmax;
+  width: 30%;
+  border-radius: 1vmax;
+  height: 2vmax;
+  border: 0.1vmax solid black;
+  transition: 0.5s all;
+}
+
+.content .btn:hover {
+  border: 0.15vmax solid black;
+  transform: scale(1.1);
+}
