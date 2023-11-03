@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Single = () => {
+const Menu = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Single = () => {
   )
 }
 
-export default Single
+export default Menu

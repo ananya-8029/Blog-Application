@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;900&family=Poppins:wght@100;300;500&display=swap");
+
+.main {
+  display: flex;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 70%;
+  padding: 5vmax;
+  gap: 2vmax;
+  font-family: "Poppins", sans-serif;
+}
+
+.postsmenu {
+  width: 30%;
+}
+
+.content img {
+  height: 30vmax;
+  width: 100%;
+  border-radius: 0.8vmax;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 1vmax;
+}
+
+.user img {
+  height: 7vmax;
+  width: 7vmax;
+  border-radius: 50%;
+}
+
+.user .userinfo .username {
+  font-size: 1.5vmax;
+  font-weight: 500;
+}
+
+.user .userinfo .date {
+  font-size: 0.9vmax;
+  font-weight: 300;
+}
+
+.icons {
+  display: flex;
+  gap: 0.5vmax;
+  margin: 0.5vmax 0;
+}
+
+.icons div {
+  cursor: pointer;
+}
+
+.edit:hover {
+  color: rgb(93, 210, 93);
+}
+
+.delete:hover {
+  color: rgb(227, 87, 87);
+}
+
+.postcontent{
+    margin-top: 3vmax;
+    display: flex;
+    flex-direction: column;
+    gap: 4vmax;
+    width: 100%;
+    text-align: justify;
+}
+
+.postcontent h1 {
+  font-family: "Merriweather", serif;
+  font-size: 2.5vmax;
+  font-weight: 600;
+}
+.postcontent p{
+    font-size: 1.2vmax;
+    font-weight: 300;
+    line-height: 2.5vmax;
+    letter-spacing: 0.1vmax;
+    
+}

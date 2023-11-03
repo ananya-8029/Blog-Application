@@ -2,8 +2,10 @@ import React from "react";
 import Navbar from "@/Components/Navbar/Navbar";
 import Footer from "@/Components/Footer/Footer";
 import styles from "./index.module.css";
+import { useRouter } from "next/router";
 
 const Home = () => {
+  const router = useRouter();
   const posts = [
     {
       id: 1,
@@ -45,7 +47,9 @@ const Home = () => {
                 <img src={post.img}></img>
               </div>
               <div className={styles.content}>
-                <h1 className={styles.h1}>{post.title}</h1>
+                <div onClick={()=>router.push("/singlepost")}>
+                  <h1 className={styles.h1}>{post.title}</h1>
+                </div>
                 <p>{post.desc}</p>
                 <button className={styles.btn}>Read More</button>
               </div>
