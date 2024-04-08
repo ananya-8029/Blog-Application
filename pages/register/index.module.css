@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700;800&family=Lato:wght@100;400&family=Merriweather:wght@300;400;900&family=Montserrat:wght@700;900&family=Poppins:wght@100;300;500&family=Ubuntu+Condensed&display=swap');
+
 .registerpage{
     display: flex;
     width: 100%;
@@ -7,6 +9,100 @@
 .section1{
     display: flex;
     flex: 2;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section1 h1{
+    font-family: 'Merriweather', serif;
+    font-size: 3vmax;
+    font-weight: 900;
+}
+
+.section1 form{
+    height: 40%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 1vmax;
+    align-items: center;
+}
+
+.section1 form input{
+    padding: 1vmax;
+    font-size: 1.2vmax;
+}
+
+.section1 form .btnreg{
+    height: 15%;
+    background-color: blue;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin: 1vmax 0;
+    transition: all 0.5s;
+}
+
+.section1 form .btnreg:hover{
+    scale: 0.9;
+}
+
+.section1 form .inputfield{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4vmax;
+    justify-content: center;
+    align-items: center;
+    gap: 2vmax;
+    height: 20%;
+}
+
+.section1 form .inputfieldemail{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4vmax;
+    justify-content: center;
+    align-items: center;
+    gap: 5.4vmax;
+    height: 20%;
+}
+
+.section1 form .inputfieldpassword{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4vmax;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5vmax;
+    height: 20%;
+}
+
+.section1 .login{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    gap: 1vmax;
+}
+
+.section1 .login p:hover{
+    color: purple;
+}
+
+.section1 .login p{
+    cursor: pointer;
+}
+
+.section1 .login button{
+    transition: all 0.5s;
+}
+
+.section1 .login button:hover{
+    scale: 1.1;
 }
 
 .section2{
@@ -14,5 +110,8 @@
     flex: 2;
     height: 100%;
     width: 100%;
-    background-color: pink;
+    background-image: url('/assets/register.gif');
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    background-size: 40vmax;
 }
