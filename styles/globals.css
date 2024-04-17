@@ -8,3 +8,22 @@ body {
   background-color: white;
   /* background:  linear-gradient(to top, #0f2027, #203a43, #2c5364); */
 }
+
+.section1 h1{
+  font-family: 'Merriweather', serif;
+}
+
+.section2{
+  background-image: url('/assets/register.gif');
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  background-size: 40vmax;
+}
+
+.section1 form .inputfield{
+  font-family: 'Poppins', sans-serif;
+}
+
+.section1 .login p{
+  font-family: 'Poppins', sans-serif;
+}
