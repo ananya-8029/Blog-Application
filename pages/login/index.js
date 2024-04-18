@@ -18,8 +18,9 @@ const Login = () => {
       );
       setEmail("");
       setPassword("");
-      console.log("Here's the response: " + response);
-      router.push("/intro");
+      console.log("Here's the response: " , response);
+      document.cookie=`token=${response.data.access_token}`
+      router.push("/home");
     } catch (error) {
       console.log(error);
       setErr(error.response.data);

@@ -43,22 +43,24 @@ exports.login = (req, res) => {
   db.query(userQuery, [req.body.email], async (err, data) => {
     if (err) return res.json(err);
     if (data.length == 0) return res.status(404).json("User Not Found");
-    if(data[0].password==null) {
+
     const isPasswordCorrect = bcrypt.compareSync(
       req.body.password,
-      data[0].password
+      data[0].PASSWORD
     );
-  }
-  else{
-    console.log("data is not provided")
-  }
 
     if (!isPasswordCorrect)
       return res.status(400).json("Please provide correct user credentials");
 
     const signinToken = jwt.sign({ id: data[0].id }, secretKey);
-    const { password, ...other} = data[0];
-    res.cookie("access-token: ",signinToken, {httpOnly:true}).status(200).json(other)
+    const { PASSWORD, ...other } = data[0];
+
+    res
+      .cookie("access-token", signinToken, {
+        httpOnly: true,
+      })
+      .status(200)
+      .json({access_token:signinToken,...other});
   });
 };
 
