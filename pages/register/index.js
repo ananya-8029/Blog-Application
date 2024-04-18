@@ -6,38 +6,29 @@ import { useRouter } from "next/router";
 
 const Register = () => {
   const router = useRouter();
-  const [initials, setInitials] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [err, setErr] = useState(null);
-
-  const handleChange = (e) => {
-    setInitials((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
         "http://localhost:8800/api/auth/register",
-        initials
+        { userName, email, password }
       );
       console.log("Here's the response we got: ", response);
+      setUserName("");
+      setEmail("");
+      setPassword("");
+
       router.push("/login");
     } catch (error) {
       setErr(error.response.data);
       console.log(error);
     }
-    console.log(initials);
-    setInitials({
-      username: "",
-      email: "",
-      password: "",
-    });
-    console.log(initials);
   };
 
   return (
@@ -54,7 +45,9 @@ const Register = () => {
                 required
                 type="text"
                 placeholder="Enter your Username"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setUserName(e.target.value);
+                }}
               />
             </div>
             <div className={styles.inputfieldemail}>
@@ -65,7 +58,9 @@ const Register = () => {
                 required
                 type="email"
                 placeholder="Enter your Email"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
             </div>
             <div className={styles.inputfieldpassword}>
@@ -76,7 +71,9 @@ const Register = () => {
                 required
                 type="password"
                 placeholder="Enter your Password"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
             </div>
 
@@ -86,15 +83,15 @@ const Register = () => {
             {err && <p className="text-red-500">{err}</p>}
           </form>
           <div className={styles.login}>
-              <p>Have an account already?</p>
-              <button
-                onClick={() => {
-                  router.push("/login");
-                }}
-              >
-                Login
-              </button>
-            </div>
+            <p>Have an account already?</p>
+            <button
+              onClick={() => {
+                router.push("/login");
+              }}
+            >
+              Login
+            </button>
+          </div>
         </div>
         <div className={styles.section2}></div>
       </div>
