@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { AuthContext } from "@/Context/authContext";
 
 const Login = () => {
   const router = useRouter();
@@ -9,16 +10,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [err, setErr] = useState(null);
 
+  const { login } = useContext(AuthContext)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8800/api/auth/login",
-        { email, password }
-      );
+      const response = await login({email, password})
       setEmail("");
       setPassword("");
-      console.log("Here's the response: " , response);
+      // console.log("Here's the response: " , response);
       document.cookie=`token=${response.data.access_token}`
       router.push("/home");
     } catch (error) {

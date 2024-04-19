@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Navbar.module.css";
 import { useRouter } from "next/router";
+import { AuthContext } from "@/Context/authContext";
 
 const Navbar = () => {
   const router = useRouter();
+  const { currentUser, logout } = useContext(AuthContext);
+  console.log(currentUser);
   return (
     <>
       <div className={styles.header}>
@@ -34,9 +37,24 @@ const Navbar = () => {
           </button>
 
           <div className={styles.others}>
-            <span className={styles.span}>User Name.</span>
-            <button className={styles.logout}>Logout</button>
-            <button onClick={() => router.push("/write")} className={styles.write}>WRITE</button>
+            <span className={styles.span}>
+              {currentUser
+                ? currentUser.length > 0
+                  ? currentUser.USERNAME
+                  : ""
+                : null}
+            </span>
+            {/* {currentUser ? (
+              <button onClick={logout} className={styles.logout}>Logout</button>
+            ) : (
+              <button onClick={()=>{router.push("/login")}} className={styles.logout}>Login</button>
+            )} */}
+            <button
+              onClick={() => router.push("/write")}
+              className={styles.write}
+            >
+              WRITE
+            </button>
           </div>
         </div>
       </div>
