@@ -3,12 +3,8 @@ import { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 export const AuthContextProvider = ({ children, serverUser }) => {
-  const [currentUser, setCurrentUser] = useState(
-    typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("user")) || serverUser.user
-      : serverUser.user
-  );
-  const [intialServerUser, setInitialServerUser] = useState(serverUser);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [initialServerUser, setInitialServerUser] = useState(serverUser);
 
   const login = async (inputs) => {
     try {
@@ -16,6 +12,9 @@ export const AuthContextProvider = ({ children, serverUser }) => {
         "http://localhost:8800/api/auth/login",
         inputs
       );
+      if (typeof window !== "undefined")
+        localStorage.setItem("user", JSON.stringify(res.data));
+
       setCurrentUser(res.data);
       return res;
     } catch (error) {
@@ -23,20 +22,25 @@ export const AuthContextProvider = ({ children, serverUser }) => {
     }
   };
 
-  const logout = async (inputs) => {
-    // console.log("inputs are:",inputs)
+  const logout = async () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    localStorage.removeItem("user");
     await axios.post("http://localhost:8800/api/auth/logout");
     setCurrentUser(null);
   };
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(currentUser));
-    setInitialServerUser(serverUser);
-  }, [currentUser, serverUser]);
+    if (initialServerUser) {
+      setCurrentUser(initialServerUser);
+      localStorage.setItem("user", JSON.stringify(initialServerUser));
+    }
+    // if (currentUser) localStorage.setItem("user", JSON.stringify(currentUser));
+    // setInitialServerUser(serverUser);
+  }, [initialServerUser]);
 
   return (
     <AuthContext.Provider
-      value={{ currentUser, login, logout, intialServerUser, setCurrentUser }}
+      value={{ currentUser, login, logout, initialServerUser, setCurrentUser }}
     >
       {children}
     </AuthContext.Provider>

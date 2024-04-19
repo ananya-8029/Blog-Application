@@ -1,19 +1,18 @@
 "use client";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import { useRouter } from "next/router";
 import { AuthContext } from "@/Context/authContext";
 
 const Navbar = () => {
   const router = useRouter();
-  const { currentUser, logout, setCurrentUser, intialServerUser } =
+  const { currentUser, logout, setCurrentUser, initialServerUser } =
     useContext(AuthContext);
 
   useEffect(() => {
-    setCurrentUser(intialServerUser.user);
+    if (initialServerUser) setCurrentUser(initialServerUser.user);
   }, [currentUser]);
 
-  // console.log(currentUser);
   return (
     <>
       <div className={styles.header}>
@@ -45,13 +44,20 @@ const Navbar = () => {
 
           <div className={styles.others}>
             <span className={styles.span}>
-              {currentUser ? currentUser.userName : null}
+              {currentUser
+                ? currentUser.USERNAME
+                  ? currentUser.USERNAME
+                  : currentUser.userName
+                : null}
             </span>
-            <button onClick={logout} className={styles.logout}>
-              Logout
-            </button>
-            {/* {currentUser ? (
-              <button onClick={logout} className={styles.logout}>
+            {currentUser ? (
+              <button
+                onClick={async () => {
+                  await logout();
+                  router.push("/home");
+                }}
+                className={styles.logout}
+              >
                 Logout
               </button>
             ) : (
@@ -63,7 +69,7 @@ const Navbar = () => {
               >
                 Login
               </button>
-            )} */}
+            )}
             <button
               onClick={() => router.push("/write")}
               className={styles.write}
