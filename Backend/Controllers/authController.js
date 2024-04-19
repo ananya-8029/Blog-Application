@@ -52,16 +52,46 @@ exports.login = (req, res) => {
     if (!isPasswordCorrect)
       return res.status(400).json("Please provide correct user credentials");
 
-    const signinToken = jwt.sign({ id: data[0].id }, secretKey);
+    const userData = {
+      user: {
+        id: data[0].ID,
+        userName: data[0].USERNAME,
+        email: data[0].EMAIL,
+      },
+    };
+
+    const signinToken = jwt.sign(userData, secretKey);
     const { PASSWORD, ...other } = data[0];
 
     res
-      .cookie("access-token", signinToken, {
+      .cookie("access_token", signinToken, {
         httpOnly: true,
       })
       .status(200)
-      .json({access_token:signinToken,...other});
+      .json({ access_token: signinToken, ...other });
   });
 };
 
-exports.logout = (req, res) => {};
+exports.logout = (req, res) => {
+  res
+    .clearCookie("access_token", { sameSite: "none", secure: true })
+    .status(200)
+    .json("User has been logged out successfully");
+};
+
+exports.fetchUser = (req, res) => {
+  const access_token = req.header("Authorization");
+
+  try {
+    if (!access_token) {
+      res
+        .status(401)
+        .json({ error: "Please authenticate using a valid tokenn" });
+    } else {
+      const data = jwt.verify(access_token, secretKey);
+      res.status(200).json(data);
+    }
+  } catch (error) {
+    res.status(401).json({ error: "Please authenticate using a valid token" });
+  }
+};
