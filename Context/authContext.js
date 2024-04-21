@@ -34,8 +34,6 @@ export const AuthContextProvider = ({ children, serverUser }) => {
       setCurrentUser(initialServerUser);
       localStorage.setItem("user", JSON.stringify(initialServerUser));
     }
-    // if (currentUser) localStorage.setItem("user", JSON.stringify(currentUser));
-    // setInitialServerUser(serverUser);
   }, [initialServerUser]);
 
   return (

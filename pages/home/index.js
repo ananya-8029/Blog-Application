@@ -58,12 +58,12 @@ const Home = () => {
       <div className={styles.maincontainer}>
         <div className={styles.posts}>
           {posts.map((post) => (
-            <div className={styles.post} key={post.ID}>
+            <div className={styles.post} key={post.UID}>
               <div className={styles.postImg}>
                 <img src={post.IMAGE}></img>
               </div>
               <div className={styles.content}>
-                <div onClick={() => router.push("/singlepost")}>
+                <div onClick={() => router.push(`/singlepost?${post.UID}`)}>
                   <h1 className={styles.h1}>{post.TITLE}</h1>
                 </div>
                 <p>{post.DESCRIPTION}</p>

@@ -5,14 +5,21 @@ exports.getPosts = (req, res) => {
     ? "SELECT * FROM posts WHERE cat=?"
     : "SELECT * FROM posts";
 
-    db.query(q,[req.query.cat],(err,data)=>{
-        if(err) return res.json(err)
+  db.query(q, [req.query.cat], (err, data) => {
+    if (err) return res.json(err);
 
-        return res.status(200).json(data)
-    })
+    return res.status(200).json(data);
+  });
 };
 exports.getPost = (req, res) => {
-  res.json("from controller");
+  const q = req.params.id ? "SELECT * FROM posts WHERE UID=?" : "";
+
+  if (q.length === 0) return res.json("Not Available");
+  db.query(q, [req.params.id], (err, data) => {
+    if (err) return res.json(err);
+
+    return res.status(200).json(data);
+  });
 };
 exports.addPost = (req, res) => {
   res.json("from controller");
