@@ -18,27 +18,27 @@ const Navbar = () => {
       <div className={styles.header}>
         <div className={styles.logo}>lOGO.</div>
         <div className={styles.links}>
-          <button>
+          <button onClick={()=>{router.push("/home?cat=art")}}>
             <h2>Art</h2>
           </button>
 
-          <button>
+          <button onClick={()=>{router.push("/home?cat=science")}}>
             <h2>Science</h2>
           </button>
 
-          <button>
+          <button onClick={()=>{router.push("/home?cat=technology")}}>
             <h2>Technology</h2>
           </button>
 
-          <button>
+          <button onClick={()=>{router.push("/home?cat=entertainment")}}>
             <h2>Entertainment</h2>
           </button>
 
-          <button>
+          <button onClick={()=>{router.push("/home?cat=design")}}>
             <h2>Design</h2>
           </button>
 
-          <button>
+          <button onClick={()=>{router.push("/home?cat=food")}}>
             <h2>Food</h2>
           </button>
 
