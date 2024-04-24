@@ -27,3 +27,44 @@ body {
 .section1 .login p{
   font-family: 'Poppins', sans-serif;
 }
+
+@media screen and (max-width: 1024px) {
+  .section1 form {
+    height: 22%;
+  }
+
+  .section1 form .btnlog {
+    height: 10%;
+    font-size: 0.8vmax;
+  }
+
+  .section2 {
+    background-size: 31vmax;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .loginpage{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section2{
+    flex: 1;
+    background-position: 50% 20%;
+  }
+
+  .section1{
+    flex: 1.2;
+    justify-content: flex-end;
+  }
+
+  .section1 form {
+    height: 35%;
+    width: 100%;
+  }
+
+  .login{
+    font-size: 1.1vmax;
+  }
+}

@@ -10,16 +10,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [err, setErr] = useState(null);
 
-  const { login } = useContext(AuthContext)
+  const { login } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await login({email, password})
+      const response = await login({ email, password });
       setEmail("");
       setPassword("");
-      // console.log("Here's the response: " , response);
-      document.cookie=`token=${response.data.access_token}`
+      document.cookie = `token=${response.data.access_token}`;
       router.push("/home");
     } catch (error) {
       console.log(error);
@@ -29,7 +28,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex w-full h-screen">
+      <div className="loginpage flex w-full h-screen">
         <div className=" section1 flex flex-[2] w-[50%] justify-center items-center flex-col">
           <h1 className="text-[3vmax] font-[900] my-[1vmax]">Login</h1>
           <form className="h-[40%] w-[80%] flex justify-center flex-col items-center gap-[1vmax]">
@@ -61,7 +60,7 @@ const Login = () => {
             </div>
             <button
               onClick={handleSubmit}
-              className="h-[15%] bg-blue-800 w-[20%] flex justify-center items-center text-white hover:scale-[0.9] font-medium transition duration-150"
+              className="btnlog h-[15%] bg-blue-800 w-[20%] flex justify-center items-center text-white hover:scale-[0.9] font-medium transition duration-150"
             >
               LOGIN
             </button>
