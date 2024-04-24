@@ -44,14 +44,19 @@ const Singlepost = () => {
     fetchPosts();
   }, [postId]);
 
-  const handleDelete = async ()=>{
+  const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8800/api/posts/${postId}`);
+      const token = document.cookie.split("=")[1];
+      await axios.delete(`http://localhost:8800/api/posts/${postId}`, {
+        headers: {
+          Authorization: token,
+        },
+      });
       router.push("/home");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   if (!post || !currentUser) {
     return (
@@ -90,12 +95,8 @@ const Singlepost = () => {
               </div>
             </div>
             <div className={styles.postcontent}>
-              <h1>
-                {post[0].TITLE}
-              </h1>
-              <p>
-                {post[0].DESCRIPTION}
-              </p>
+              <h1>{post[0].TITLE}</h1>
+              <p>{post[0].DESCRIPTION}</p>
             </div>
           </div>
         </div>
