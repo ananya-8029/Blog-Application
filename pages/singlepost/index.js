@@ -87,7 +87,7 @@ const Singlepost = () => {
                     >
                       <FontAwesomeIcon icon={faPenToSquare} />
                     </button>
-                    <button className={styles.delete}>
+                    <button className={styles.delete} onClick={handleDelete}>
                       <FontAwesomeIcon icon={faTrash} />
                     </button>
                   </div>
