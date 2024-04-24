@@ -18,8 +18,8 @@ const Singlepost = () => {
   const { currentUser, setCurrentUser, initialServerUser } =
     useContext(AuthContext);
 
-  console.log(currentUser);
-  console.log(post)
+  // console.log(currentUser);
+  // console.log(post)
 
   // var userDetails;
   // var userName;
@@ -44,6 +44,15 @@ const Singlepost = () => {
     fetchPosts();
   }, [postId]);
 
+  const handleDelete = async ()=>{
+    try {
+      await axios.delete(`http://localhost:8800/api/posts/${postId}`);
+      router.push("/home");
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   if (!post || !currentUser) {
     return (
       <div className="h-screen w-full flex justify-center items-center">
@@ -59,13 +68,13 @@ const Singlepost = () => {
           <div className={styles.content}>
             <img src={post[0].IMAGE} />
             <div className={styles.user}>
-              <img alt="Not Available" src="https://picsum.photos/400/400" />
+              <img alt="Not Available" src={post[0].USERIMAGE} />
               <div className={styles.userinfo}>
-                <p className={styles.username}>{post.USERNAME}</p>
+                <p className={styles.username}>{post[0].USERNAME}</p>
                 <p className={styles.date}>
                   Posted {moment(post[0].DATE).fromNow()}
                 </p>
-                {currentUser.userName === post?.USERNAME && (
+                {currentUser.userName === post[0].USERNAME && (
                   <div className={styles.icons}>
                     <button
                       onClick={() => router.push("/write")}

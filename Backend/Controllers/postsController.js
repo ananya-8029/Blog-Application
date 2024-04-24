@@ -12,7 +12,10 @@ exports.getPosts = (req, res) => {
   });
 };
 exports.getPost = (req, res) => {
-  const q = req.params.id ? "SELECT * FROM posts WHERE UID=?" : "";
+  
+  const q = "SELECT `USERNAME` , `TITLE`, `DESCRIPTION` ,`USERIMAGE`, `IMAGE` , `cat` , `DATE` FROM users u JOIN posts p ON u.ID = p.UID WHERE p.UID=?"
+  
+  // const q = req.params.id ? "SELECT * FROM posts WHERE UID=?" : "";
 
   if (q.length === 0) return res.json("Not Available");
   db.query(q, [req.params.id], (err, data) => {
