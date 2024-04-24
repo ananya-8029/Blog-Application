@@ -9,11 +9,13 @@ const Home = () => {
   const router = useRouter();
   const [posts, setPosts] = useState([]);
 
-  const category = router.query.cat
+  const category = router.query.cat;
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/api/posts?cat=${category}`);
+        const res = await axios.get(
+          `http://localhost:8800/api/posts?cat=${category}`
+        );
         setPosts(res.data);
       } catch (error) {
         console.error(error);
@@ -21,7 +23,7 @@ const Home = () => {
     };
     fetchPosts();
   });
-  
+
   return (
     <>
       <Navbar />

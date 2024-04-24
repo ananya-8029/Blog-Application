@@ -15,21 +15,10 @@ const Singlepost = () => {
   const router = useRouter();
   const [post, setPost] = useState(null);
 
-  const { currentUser, setCurrentUser, initialServerUser } =
-    useContext(AuthContext);
-
-  // console.log(currentUser);
-  // console.log(post)
-
-  // var userDetails;
-  // var userName;
-
-  // if (typeof window !== "undefined") {
-  //   userDetails = JSON.parse(localStorage.getItem("user"));
-  //   userName = userDetails.user.userName;
-  // }
+  const { currentUser } = useContext(AuthContext);
 
   const postId = router.asPath.split("?")[1];
+  
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -101,7 +90,7 @@ const Singlepost = () => {
           </div>
         </div>
         <div className={styles.postsmenu}>
-          <Menu />
+          <Menu cat={post[0].cat} postId={postId}/>
         </div>
       </div>
       <Footer />

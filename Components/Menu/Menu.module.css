@@ -26,6 +26,7 @@
   display: flex;
   flex-direction: column;
   gap: 1vmax;
+  align-items: center;
 }
 
 .content h1 {
@@ -36,7 +37,7 @@
 
 .content .btn {
   font-size: 1vmax;
-  width: 30%;
+  width: 6vmax;
   border-radius: 1vmax;
   height: 2vmax;
   border: 0.1vmax solid black;
