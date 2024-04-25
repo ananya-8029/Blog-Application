@@ -4,6 +4,7 @@ import Footer from "@/Components/Footer/Footer";
 import styles from "./index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faB, faI, faU } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 const Write = () => {
   const [description, setDescription] = useState("");
@@ -11,8 +12,24 @@ const Write = () => {
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState("");
 
+  const upload = async () => {
+    try {
+      const formdata = new FormData();
+      formdata.append("file", file);
+      const res = await axios.post(
+        "http://localhost:8800/api/upload",
+        formdata
+      );
+
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleUpload = async () => {
     e.preventDefault();
+    upload();
   };
   return (
     <>
@@ -63,7 +80,7 @@ const Write = () => {
                 setFile(e.target.files[0]);
               }}
             />
-            <lable htmlFor="file">Upload Image</lable>
+            <label htmlFor="file">Upload Image</label>
             <div className={styles.btns}>
               <button className={styles.btn1}>Save as Draft</button>
               <button onClick={handleUpload} className={styles.btn2}>
