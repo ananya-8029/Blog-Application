@@ -16,6 +16,9 @@ const Write = () => {
     try {
       const formdata = new FormData();
       formdata.append("file", file);
+      for (const pair of formdata.entries()) {
+        console.log(pair[0] + ": " + pair[1]);
+      }
       const res = await axios.post(
         "http://localhost:8800/api/upload",
         formdata
@@ -27,7 +30,7 @@ const Write = () => {
     }
   };
 
-  const handleUpload = async () => {
+  const handleUpload = async (e) => {
     e.preventDefault();
     upload();
   };
@@ -72,15 +75,16 @@ const Write = () => {
                 <li className={styles.li}>Visibility:</li>
               </ul>
             </div>
+            <label htmlFor="file">Upload Image</label>
             <input
               type="file"
-              id={styles.file}
+              id="file"
+              className="hidden"
               name=""
               onChange={(e) => {
                 setFile(e.target.files[0]);
               }}
             />
-            <label htmlFor="file">Upload Image</label>
             <div className={styles.btns}>
               <button className={styles.btn1}>Save as Draft</button>
               <button onClick={handleUpload} className={styles.btn2}>

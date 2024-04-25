@@ -2,13 +2,32 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../public/uploads");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, Date.now() + file.originalname);
+  },
+});
+
+const upload = multer({ storage });
 
 const app = express();
 const port = 8800;
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
+
 app.post("/api/upload", upload.single("file"), (req, res) => {
-  res.status(200).json("Image has been uploaded");
+  const file = req.file;
+  res.status(200).json(file.filename);
 });
 
 app.use(cors());

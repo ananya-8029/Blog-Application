@@ -1,151 +1,148 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.addpost{
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.addpost {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.menu{
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    gap: 2vmax;
-    padding: 5vmax 0;
-    font-family: "Poppins", sans-serif;
+.menu {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 2vmax;
+  padding: 5vmax 0;
+  font-family: "Poppins", sans-serif;
 }
-.content{
-    padding: 5vmax 1vmax;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    gap: 4vmax;
-}
-
-.container .title:focus{
-    outline: none;
+.content {
+  padding: 5vmax 1vmax;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 4vmax;
 }
 
-.container .desc:focus{
-    outline: none;
+.container .title:focus {
+  outline: none;
 }
 
-.container .title{
-    width: 80%;
-    height: 4vmax;
-    border: 0.2vmax solid rgba(181, 177, 177, 0.695);
-    padding: 0 1vmax;
-    border-radius: 0.4vmax;
+.container .desc:focus {
+  outline: none;
 }
 
-.container .text{
-    width: 80%;
+.container .title {
+  width: 80%;
+  height: 4vmax;
+  border: 0.2vmax solid rgba(181, 177, 177, 0.695);
+  padding: 0 1vmax;
+  border-radius: 0.4vmax;
 }
 
-.container .options{
-    width: 100%;
-    height: 3vmax;
-    border: 0.2vmax solid rgba(92, 92, 92, 0.695);
-    border-bottom: none;
-    display: flex;
-    align-items: center;
-    gap: 1vmax;
-    padding: 1vmax;
-    border-top-right-radius: 0.4vmax;
-    border-top-left-radius: 0.4vmax;
+.container .text {
+  width: 80%;
 }
 
-.container .desc{
-    width: 100%;
-    border: 0.2vmax solid rgba(92, 92, 92, 0.695);
-    border-radius: 0.4vmax;
-    height: 20vmax;
-    padding: 1vmax;
-    resize: none;
+.container .options {
+  width: 100%;
+  height: 3vmax;
+  border: 0.2vmax solid rgba(92, 92, 92, 0.695);
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  gap: 1vmax;
+  padding: 1vmax;
+  border-top-right-radius: 0.4vmax;
+  border-top-left-radius: 0.4vmax;
 }
 
-.text .option{
-    /* background-color: rgb(163, 163, 163); */
-    height: 1.2vmax;
-    font-size: 0.5vmax;
+.container .desc {
+  width: 100%;
+  border: 0.2vmax solid rgba(92, 92, 92, 0.695);
+  border-radius: 0.4vmax;
+  height: 20vmax;
+  padding: 1vmax;
+  resize: none;
 }
 
-.menu1{
-    width: 75%;
-    border: 0.2vmax solid rgba(92, 92, 92, 0.695);
-    border-radius: 0.4vmax;
-    padding: 1vmax 2vmax;
-    display: flex;
-    flex-direction: column;
-    gap: 1vmax;
+.text .option {
+  /* background-color: rgb(163, 163, 163); */
+  height: 1.2vmax;
+  font-size: 0.5vmax;
 }
 
-.menu1 h1{
-    font-size: 1.7vmax;
-    font-weight: 500;
-    color: rgb(63, 63, 63);
-    font-weight: 800;
+.menu1 {
+  width: 75%;
+  border: 0.2vmax solid rgba(92, 92, 92, 0.695);
+  border-radius: 0.4vmax;
+  padding: 1vmax 2vmax;
+  display: flex;
+  flex-direction: column;
+  gap: 1vmax;
 }
 
-.menu1 div ul li{
-    font-size: 1.2vmax;
-    color: rgb(69, 66, 66);
-    font-weight: 400;
+.menu1 h1 {
+  font-size: 1.7vmax;
+  font-weight: 500;
+  color: rgb(63, 63, 63);
+  font-weight: 800;
 }
 
-.menu2{
-    width: 75%;
-    border: 0.2vmax solid rgba(92, 92, 92, 0.695);
-    border-radius: 0.4vmax;
-    padding: 1vmax 2vmax;
+.menu1 div ul li {
+  font-size: 1.2vmax;
+  color: rgb(69, 66, 66);
+  font-weight: 400;
 }
 
-.menu1 button{
-    display: flex;
+.menu2 {
+  width: 75%;
+  border: 0.2vmax solid rgba(92, 92, 92, 0.695);
+  border-radius: 0.4vmax;
+  padding: 1vmax 2vmax;
 }
 
-.menu1 .btns{
-    display: flex;
-    justify-content: space-between;
-    font-weight: 300;
-    font-size: 0.9vmax;
+.menu1 label {
+  display: flex;
+  cursor: pointer;
 }
 
-.menu1 .btns .btn1{
-    border: 0.1vmax solid rgba(92, 92, 92, 0.695);
-    padding:0.5vmax 1vmax;
-    color: #59B789;
+.menu1 .btns {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 300;
+  font-size: 0.9vmax;
 }
 
-.menu1 .btns .btn2{
-    background-color: #59B789;
-    padding:0.5vmax 1vmax;
-    color: white;
+.menu1 .btns .btn1 {
+  border: 0.1vmax solid rgba(92, 92, 92, 0.695);
+  padding: 0.5vmax 1vmax;
+  color: #59b789;
 }
 
-.menu2 h1{
-    font-size: 1.7vmax;
-    font-weight: 300;
-    color: rgb(63, 63, 63);
-    font-weight: 800;
+.menu1 .btns .btn2 {
+  background-color: #59b789;
+  padding: 0.5vmax 1vmax;
+  color: white;
 }
 
-.menu2 div{
-    color: #59B789;
-    list-style-type: circle;
-    cursor: pointer;
-    transition: all 0.3s;
+.menu2 h1 {
+  font-size: 1.7vmax;
+  font-weight: 300;
+  color: rgb(63, 63, 63);
+  font-weight: 800;
 }
 
-.menu2 div:hover{
-    transform: scale(1.1);
+.menu2 div {
+  color: #59b789;
+  list-style-type: circle;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-#file{
-    display: none;
+.menu2 div:hover {
+  transform: scale(1.1);
 }
