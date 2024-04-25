@@ -24,7 +24,7 @@ const Write = () => {
         formdata
       );
 
-      console.log(res.data);
+      return res.data;
     } catch (error) {
       console.log(error);
     }
@@ -32,7 +32,12 @@ const Write = () => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    upload();
+    const imgeUrl = upload();
+    try {
+      
+    } catch (error) {
+      
+    }
   };
   return (
     <>
