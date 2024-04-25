@@ -135,13 +135,17 @@
     font-weight: 800;
 }
 
-.menu2 ul li{
+.menu2 div{
     color: #59B789;
     list-style-type: circle;
     cursor: pointer;
     transition: all 0.3s;
 }
 
-.menu2 ul li:hover{
+.menu2 div:hover{
     transform: scale(1.1);
+}
+
+#file{
+    display: none;
 }

@@ -7,14 +7,27 @@ import { faB, faI, faU } from "@fortawesome/free-solid-svg-icons";
 
 const Write = () => {
   const [description, setDescription] = useState("");
-  console.log(description);
+  const [title, setTitle] = useState("");
+  const [file, setFile] = useState(null);
+  const [cat, setCat] = useState("");
+
+  const handleUpload = async () => {
+    e.preventDefault();
+  };
   return (
     <>
       <Navbar />
       <div className={styles.container}>
         <div className={styles.addpost}>
           <div className={styles.content}>
-            <input className={styles.title} type="text" placeholder="Title" />
+            <input
+              className={styles.title}
+              type="text"
+              placeholder="Title"
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            />
             <div className={styles.text}>
               <div className={styles.options}>
                 <FontAwesomeIcon className={styles.option} icon={faB} />
@@ -42,22 +55,96 @@ const Write = () => {
                 <li className={styles.li}>Visibility:</li>
               </ul>
             </div>
-            <button>Upload Image</button>
+            <input
+              type="file"
+              id={styles.file}
+              name=""
+              onChange={(e) => {
+                setFile(e.target.files[0]);
+              }}
+            />
+            <lable htmlFor="file">Upload Image</lable>
             <div className={styles.btns}>
               <button className={styles.btn1}>Save as Draft</button>
-              <button className={styles.btn2}>Update</button>
+              <button onClick={handleUpload} className={styles.btn2}>
+                Upload
+              </button>
             </div>
           </div>
           <div className={styles.menu2}>
             <h1>Category</h1>
-            <ul>
-              <li>Art</li>
-              <li>Science</li>
-              <li>Technology</li>
-              <li>Cinema</li>
-              <li>Design</li>
-              <li>Food</li>
-            </ul>
+            <div>
+              <input
+                type="radio"
+                name="cat"
+                value="art"
+                id="art"
+                onChange={(e) => {
+                  setCat(e.target.value);
+                }}
+              />
+              <label htmlFor="art">Art</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="cat"
+                value="science"
+                id="science"
+                onChange={(e) => {
+                  setCat(e.target.value);
+                }}
+              />
+              <label htmlFor="science">Science</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="cat"
+                value="technology"
+                id="technology"
+                onChange={(e) => {
+                  setCat(e.target.value);
+                }}
+              />
+              <label htmlFor="technology">Technology</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="cat"
+                value="cinema"
+                id="cinema"
+                onChange={(e) => {
+                  setCat(e.target.value);
+                }}
+              />
+              <label htmlFor="cinema">Cinema</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="cat"
+                value="design"
+                id="design"
+                onChange={(e) => {
+                  setCat(e.target.value);
+                }}
+              />
+              <label htmlFor="design">Design</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="cat"
+                value="food"
+                id="food"
+                onChange={(e) => {
+                  setCat(e.target.value);
+                }}
+              />
+              <label htmlFor="food">Food</label>
+            </div>
           </div>
         </div>
       </div>
