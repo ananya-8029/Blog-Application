@@ -5,20 +5,23 @@ import styles from "./index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faB, faI, faU } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { useRouter } from "next/router";
+import moment from "moment";
 
 const Write = () => {
-  const [description, setDescription] = useState("");
-  const [title, setTitle] = useState("");
+  const router = useRouter();
+
+  console.log(router.query)
+  const statePost = router.query.post ? JSON.parse(router.query.post) : null;
+  const [title, setTitle] = useState(statePost?.TITLE || "");
+  const [description, setDescription] = useState(statePost?.DESCRIPTION || "");
   const [file, setFile] = useState(null);
-  const [cat, setCat] = useState("");
+  const [cat, setCat] = useState(statePost?.cat || "");
 
   const upload = async () => {
     try {
       const formdata = new FormData();
       formdata.append("file", file);
-      for (const pair of formdata.entries()) {
-        console.log(pair[0] + ": " + pair[1]);
-      }
       const res = await axios.post(
         "http://localhost:8800/api/upload",
         formdata
@@ -34,10 +37,21 @@ const Write = () => {
     e.preventDefault();
     const imgeUrl = upload();
     try {
-      
-    } catch (error) {
-      
-    }
+      statePost
+        ? await axios.put(`http://localhost:8800/api/posts/${postId}`, {
+            title,
+            description,
+            cat,
+            img: file ? imgeUrl : "",
+          })
+        : await axios.post(`http://localhost:8800/api/posts/`, {
+            title,
+            description,
+            cat,
+            img: file ? imgeUrl : "",
+            date:moment(Date.now()).format("YYYY-MM-DD HH:mm:ss")
+          });
+    } catch (error) {}
   };
   return (
     <>
@@ -49,6 +63,7 @@ const Write = () => {
               className={styles.title}
               type="text"
               placeholder="Title"
+              value={title}
               onChange={(e) => {
                 setTitle(e.target.value);
               }}
@@ -102,6 +117,7 @@ const Write = () => {
             <div>
               <input
                 type="radio"
+                checked={cat == "art"}
                 name="cat"
                 value="art"
                 id="art"
@@ -114,6 +130,7 @@ const Write = () => {
             <div>
               <input
                 type="radio"
+                checked={cat == "science"}
                 name="cat"
                 value="science"
                 id="science"
@@ -126,6 +143,7 @@ const Write = () => {
             <div>
               <input
                 type="radio"
+                checked={cat == "technology"}
                 name="cat"
                 value="technology"
                 id="technology"
@@ -138,6 +156,7 @@ const Write = () => {
             <div>
               <input
                 type="radio"
+                checked={cat == "cinema"}
                 name="cat"
                 value="cinema"
                 id="cinema"
@@ -150,6 +169,7 @@ const Write = () => {
             <div>
               <input
                 type="radio"
+                checked={cat == "design"}
                 name="cat"
                 value="design"
                 id="design"
@@ -162,6 +182,7 @@ const Write = () => {
             <div>
               <input
                 type="radio"
+                checked={cat == "food"}
                 name="cat"
                 value="food"
                 id="food"

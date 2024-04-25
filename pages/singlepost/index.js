@@ -18,7 +18,7 @@ const Singlepost = () => {
   const { currentUser } = useContext(AuthContext);
 
   const postId = router.asPath.split("?")[1];
-  
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -54,6 +54,7 @@ const Singlepost = () => {
       </div>
     );
   }
+
   return (
     <>
       <Navbar />
@@ -71,7 +72,12 @@ const Singlepost = () => {
                 {currentUser.userName === post[0].USERNAME && (
                   <div className={styles.icons}>
                     <button
-                      onClick={() => router.push("/write")}
+                      onClick={() =>
+                        router.push({
+                          pathname: "/write",
+                          query: { edit: postId, post: post[0] },
+                        })
+                      }
                       className={styles.edit}
                     >
                       <FontAwesomeIcon icon={faPenToSquare} />
@@ -90,7 +96,7 @@ const Singlepost = () => {
           </div>
         </div>
         <div className={styles.postsmenu}>
-          <Menu cat={post[0].cat} postId={postId}/>
+          <Menu cat={post[0].cat} postId={postId} />
         </div>
       </div>
       <Footer />
