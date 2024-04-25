@@ -138,4 +138,10 @@
 .menu2 ul li{
     color: #59B789;
     list-style-type: circle;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.menu2 ul li:hover{
+    transform: scale(1.1);
 }
