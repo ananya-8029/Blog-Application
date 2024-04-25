@@ -7,7 +7,7 @@ import { faB, faI, faU } from "@fortawesome/free-solid-svg-icons";
 
 const Write = () => {
   const [description, setDescription] = useState("");
-  console.log(description)
+  console.log(description);
   return (
     <>
       <Navbar />
@@ -26,8 +26,8 @@ const Write = () => {
                 type="text"
                 placeholder="Suggest your opinions"
                 value={description}
-                onChange={(event)=>{
-                  setDescription(event.target.value)
+                onChange={(event) => {
+                  setDescription(event.target.value);
                 }}
               />
             </div>
@@ -38,12 +38,27 @@ const Write = () => {
             <h1 className={styles.h1}>Publish</h1>
             <div>
               <ul>
-                <li>Status</li>
-                <li>Visibility</li>
+                <li className={styles.li}>Status:</li>
+                <li className={styles.li}>Visibility:</li>
               </ul>
             </div>
+            <button>Upload Image</button>
+            <div className={styles.btns}>
+              <button className={styles.btn1}>Save as Draft</button>
+              <button className={styles.btn2}>Update</button>
+            </div>
           </div>
-          <div className={styles.menu2}></div>
+          <div className={styles.menu2}>
+            <h1>Category</h1>
+            <ul>
+              <li>Art</li>
+              <li>Science</li>
+              <li>Technology</li>
+              <li>Cinema</li>
+              <li>Design</li>
+              <li>Food</li>
+            </ul>
+          </div>
         </div>
       </div>
       <Footer />

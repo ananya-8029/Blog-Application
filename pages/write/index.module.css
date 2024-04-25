@@ -11,6 +11,11 @@
 }
 .menu{
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vmax;
+    padding: 5vmax 0;
+    font-family: "Poppins", sans-serif;
 }
 .content{
     padding: 5vmax 1vmax;
@@ -19,7 +24,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    gap: 2vmax;
+    gap: 4vmax;
 }
 
 .container .title:focus{
@@ -32,7 +37,7 @@
 
 .container .title{
     width: 80%;
-    height: 3.5vmax;
+    height: 4vmax;
     border: 0.2vmax solid rgba(181, 177, 177, 0.695);
     padding: 0 1vmax;
     border-radius: 0.4vmax;
@@ -59,7 +64,7 @@
     width: 100%;
     border: 0.2vmax solid rgba(92, 92, 92, 0.695);
     border-radius: 0.4vmax;
-    height: 15vmax;
+    height: 20vmax;
     padding: 1vmax;
     resize: none;
 }
@@ -71,11 +76,66 @@
 }
 
 .menu1{
-    width: 100%;
+    width: 75%;
+    border: 0.2vmax solid rgba(92, 92, 92, 0.695);
+    border-radius: 0.4vmax;
+    padding: 1vmax 2vmax;
+    display: flex;
+    flex-direction: column;
+    gap: 1vmax;
 }
 
 .menu1 h1{
-    font-family: "Poppins", sans-serif;
-    font-size: 1.5vmax;
+    font-size: 1.7vmax;
     font-weight: 500;
+    color: rgb(63, 63, 63);
+    font-weight: 800;
+}
+
+.menu1 div ul li{
+    font-size: 1.2vmax;
+    color: rgb(69, 66, 66);
+    font-weight: 400;
+}
+
+.menu2{
+    width: 75%;
+    border: 0.2vmax solid rgba(92, 92, 92, 0.695);
+    border-radius: 0.4vmax;
+    padding: 1vmax 2vmax;
+}
+
+.menu1 button{
+    display: flex;
+}
+
+.menu1 .btns{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+    font-size: 0.9vmax;
+}
+
+.menu1 .btns .btn1{
+    border: 0.1vmax solid rgba(92, 92, 92, 0.695);
+    padding:0.5vmax 1vmax;
+    color: #59B789;
+}
+
+.menu1 .btns .btn2{
+    background-color: #59B789;
+    padding:0.5vmax 1vmax;
+    color: white;
+}
+
+.menu2 h1{
+    font-size: 1.7vmax;
+    font-weight: 300;
+    color: rgb(63, 63, 63);
+    font-weight: 800;
+}
+
+.menu2 ul li{
+    color: #59B789;
+    list-style-type: circle;
 }
